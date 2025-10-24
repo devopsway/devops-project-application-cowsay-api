@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  cowsay-api:
+    build: .
+    image: cowsay-api:latest
+    container_name: cowsay-api
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    env_file:
+      - .env
+    restart: unless-stopped
